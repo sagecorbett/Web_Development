@@ -25,6 +25,23 @@ Along with this website, the app has a built in restful API that allows you to m
 
 
 
+## Chat App
+A simple chat application made to teach students about the library socket.io
+
+Built with:
+- socket.io
+- Node JS
+- Express JS
+- JavaScript
+- HTML
+- CSS
+
+
+
+
+
+
+
 ## CS50 Finance
 
 This app allows users to login/register and "pretend" buy/sell stocks, check real time stock prices powered by iexcloud.io API and keep track of their portfolio.
