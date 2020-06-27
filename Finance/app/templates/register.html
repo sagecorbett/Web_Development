@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+    <script>
+        function buttonHandler(){
+            let username = document.getElementById("username").value;
+            let xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function(){
+                if(xhttp.readyState == 4 && xhttp.status == 200){
+                    return getAsBoolean(xhttp.response)
+                }
+            }
+            xhttp.open("GET", `/check?username=${username}`, true)
+            xhttp.send()
+        }
+    </script>
+    <form action="/register" method="post" id="myform">
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" id="username" name="username" placeholder="Username" type="text">
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="password" placeholder="Password" type="password">
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="confirmation" placeholder="Confirm Password" type="password">
+        </div>
+        <button class="btn btn-primary" onclick="buttonHandler()" id="submit" type="submit">Register</button>
+    </form>
+{% endblock %}

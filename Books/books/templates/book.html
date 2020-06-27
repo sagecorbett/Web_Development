@@ -1,0 +1,113 @@
+{% extends "layout.html" %} {% block title %} {{ book.title }} {% endblock %} {%
+block body %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	<a class="navbar-brand book-font text-white" href="/">Books</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+		aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbarNav">
+		<ul class="navbar-nav">
+			<li class="nav-item active">
+				<a class="nav-link text-white book-font" href="/">Search</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link text-white book-font" href="/logout">Logout</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+<div class="book container" data-book="{{ book.id }}">
+    <!-- Header at the top of page -->
+
+	<div class="jumbotron jumbotron-fluid">
+		<div class="container text-center">
+			<h1 class="display-4">{{ book.title }}</h1>
+			<p class="lead">by: {{ book.author }}</p>
+		</div>
+    </div>
+    
+    <!-- Hidden form that only shows when add review is clicked -->
+
+	<div class="book__add-review">
+        <div class="book__add-review--goodread">
+          GoodReads Average Rating: <span class="text-primary">{{ goodread.average_rating }}</span> out of <span class="text-primary">{{ goodread.ratings_count }}</span> Ratings
+        </div>
+		<div class="book__add-review--button">Add a review</div>
+    </div>
+    	<div class="book__review-modal bg-light">
+		<form action="/book" method="POST" id="submit-review">
+			<div class="form-group">
+				<label for="rating">Rating</label>
+				<select class="form-control" name="rating" id="rating">
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="review">Review</label>
+				<textarea
+					class="form-control"
+					name="review"
+					rows="3"
+					id="review"
+				></textarea>
+            </div>
+            <input type="hidden" name="book-id" value="{{ book.id }}">
+			<button class="btn btn-lg btn-primary">Submit</button>
+			<span class="ml-1 text-primary book__review-modal--cancel">Cancel</span>
+		</form>
+    </div>
+    
+    <!-- Loop through all reviews and map them into cards -->
+
+	{% if reviews %} {% for review in reviews %}
+	<div class="card">
+		<span
+			data-rating="{{ review.rating }}"
+			data-user="{{ review.username }}"
+			class="rating book__rating"
+		></span>
+		<div class="card-body">
+			{{ review.review }}
+		</div>
+	</div>
+	{% endfor %} {% else %}
+	<h3>No reviews yet</h3>
+	{% endif %}
+</div>
+<script type="text/javascript">
+	// open and close review submission
+	let reviewModalButton = document.querySelector('.book__add-review--button');
+	let reviewModal = document.querySelector('.book__review-modal');
+	let reviewCancel = document.querySelector('.book__review-modal--cancel');
+
+	reviewModalButton.addEventListener('click', () => {
+		return (reviewModal.style.display = 'block');
+	});
+	reviewCancel.addEventListener('click', () => {
+		return (reviewModal.style.display = 'none');
+	});
+
+	// Put stars for each rating
+	let userRating = document.querySelectorAll('.rating');
+	const starCalculator = userRating => {
+		let rating = userRating.dataset.rating;
+		let user = userRating.dataset.user;
+		let userStr = `User: <a href="" >${user}</a> rated this: `;
+		for (let i = 1; i <= 5; i++) {
+			if (i <= +rating) {
+				userStr += ' &#9733;';
+			} else userStr += ' &#9734;';
+		}
+		userRating.innerHTML = userStr;
+	};
+
+	for (let i of userRating) {
+		starCalculator(i);
+	}
+</script>
+{% endblock %}
