@@ -18,14 +18,14 @@ Built with:
 - Sass / CSS
 - GoodReads.com API
 
-### API
+##### API
 Along with this website, the app has a built in restful API that allows you to make a GET request with a book ISBN to route `/api/<string: isbn>` and it will return information such as title, author, year, review count and average rating. 
 
 ![Picture of API response](./Books/images/api.png)
 
 
 
-## Chat
+## Chat - Node/Socket.io app
 A simple chat application made to teach students about the library socket.io
 
 ![Gif showing of product features](./Chat/assets/chat.gif)
