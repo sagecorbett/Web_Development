@@ -25,12 +25,10 @@ Along with this website, the app has a built in restful API that allows you to m
 
 ![Picture of API response](./Books/images/api.png)
 
-
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-
+<br />
+<br />
+<br />
+<br />
 
 ## Chat - Node/Socket.io app
 A simple chat application made to teach students about the library socket.io
@@ -50,11 +48,10 @@ Built with:
 
 
 
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-
+<br />
+<br />
+<br />
+<br />
 
 ## CS50 Finance
 
