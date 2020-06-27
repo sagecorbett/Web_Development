@@ -1,9 +1,9 @@
 # Web Development
 A Repo dedicated to some of my full-stack web development projects. In this readMe there is a description and GIF of every project below. To see the code a for a specific project just scroll up and click the relatively named folder.
 
-&nbsp;
-&nbsp;
-&nbsp;
+<br />
+<br />
+<br />
 
 ## Books CS50 Web Programming with Python
 An app that allows users to create an account, search for a book via year, isbn, title, or author, leave a rating and review and see other users ratings. This app will also display ratings from goodreads API.
