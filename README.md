@@ -25,8 +25,11 @@ Along with this website, the app has a built in restful API that allows you to m
 
 
 
-## Chat App
+## Chat
 A simple chat application made to teach students about the library socket.io
+
+![Gif showing of product features](./Chat/assets/chat.gif)
+
 
 Built with:
 - socket.io
