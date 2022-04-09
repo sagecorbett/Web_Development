@@ -1,5 +1,5 @@
 # Web Development
-A Repo dedicated to some of my full-stack web development projects. In this readMe there is a description and GIF of every project below. To see the code a for a specific project just scroll up and click the relatively named folder.
+A Repo dedicated to some of my very small full-stack web development projects. In this readMe there is a description and GIF of every project below. To see the code a for a specific project just scroll up and click the relatively named folder.
 
 <br />
 <br />
